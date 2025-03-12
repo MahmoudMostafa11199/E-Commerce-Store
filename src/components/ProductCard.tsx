@@ -18,7 +18,7 @@ type Props = {
   color: string;
   isNew: boolean;
   ratingCount: number;
-  ratings: [key: number, value: number];
+  ratings: { [key: number]: number };
 };
 
 function ProductCard({
