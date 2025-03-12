@@ -6,43 +6,10 @@ import Image from 'next/image';
 import { Icon } from '@iconify/react';
 
 import { employeesInfo } from './data';
-
-type Event = {
-  target: {
-    classList: { contains: (className: string) => boolean };
-    dataset: { slide: number };
-  };
-};
+import { useDotNavigation } from './useDotNavigation';
 
 function Employees() {
-  useEffect(() => {
-    const dotContainer = document.querySelector('.dots') as HTMLElement;
-
-    const activeDot = (slide: number) => {
-      dotContainer.querySelectorAll('button').forEach((dot) => {
-        dot.classList.remove('dot-active');
-      });
-
-      dotContainer
-        .querySelector(`button[data-slide="${slide}"]`)
-        .classList.add('dot-active');
-    };
-
-    const goToSlide = (e: Event) => {
-      if (e.target.classList.contains('dots__dot')) {
-        const dotTarget = e.target.dataset.slide;
-        activeDot(dotTarget);
-      }
-    };
-
-    activeDot(4);
-    dotContainer.addEventListener('click', goToSlide);
-    // cleanup function
-    return () => {
-      dotContainer.removeEventListener('click', goToSlide);
-    };
-  }, []);
-
+  useDotNavigation();
   return (
     <section className="py-14">
       <div className="container">
