@@ -1,6 +1,3 @@
-'use client';
-
-import { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Icon } from '@iconify/react';
@@ -10,6 +7,7 @@ import { useDotNavigation } from './useDotNavigation';
 
 function Employees() {
   useDotNavigation();
+
   return (
     <section className="py-14">
       <div className="container">
