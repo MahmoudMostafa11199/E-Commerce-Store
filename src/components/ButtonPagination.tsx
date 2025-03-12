@@ -1,6 +1,12 @@
 import { HiArrowRight, HiArrowLeft } from 'react-icons/hi2';
 
-function ButtonPagination({ containerRef }: { containerRef: HTMLDivElement }) {
+interface RefType {
+  containerRef: {
+    current: HTMLDivElement | null;
+  };
+}
+
+function ButtonPagination({ containerRef }: RefType) {
   const handleScrollRight = () => {
     if (containerRef.current) {
       containerRef.current.scrollBy({ left: 310, behavior: 'smooth' });
