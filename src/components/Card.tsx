@@ -11,7 +11,7 @@ type Props = {
   price: number;
   sale: number;
   ratingCount: number;
-  ratings: [key: number, value: number];
+  ratings: { [key: number]: number };
   showSale: boolean;
 };
 
